@@ -449,9 +449,9 @@
     render();
   }
 
-  /* ---------- Zielnik demo ---------- */
+  /* ---------- Herbarium demo ---------- */
 
-  function zielnikDemo(root) {
+  function herbariumDemo(root) {
     var MAPLE = 'M50 5 58 28 70 20 67 42 90 36 80 52 92 60 70 70 73 82 53 77 52 114 48 114 47 77 27 82 30 70 8 60 20 52 10 36 33 42 30 20 42 28Z';
     var GINKGO = 'M51 116V72C70 68 90 50 96 28 82 16 64 12 54 16L50 44 46 16C36 12 18 16 4 28 10 50 30 68 49 72V116Z';
     var OAK = 'M50 3C54 10 62 8 64 16 68 22 78 16 80 24 82 32 70 36 72 42 76 48 86 44 86 52 86 60 72 60 70 66 72 72 78 74 74 82 68 88 58 82 53 88L52 116H48L47 88C42 82 32 88 26 82 22 74 28 72 30 66 28 60 14 60 14 52 14 44 24 48 28 42 30 36 18 32 20 24 22 16 32 22 36 16 38 8 46 10 50 3Z';
@@ -523,7 +523,7 @@
         dots.map(function (d) { return '<circle data-canopy cx="' + d[0] + '" cy="' + d[1] + '" r="' + d[2] + '" fill="' + s.canopy + '" opacity="' + s.opacity + '"/>'; }).join('') +
         '<rect x="-40" y="280" width="280" height="20" fill="#7F9A5A"/></svg>' +
         '<div class="z-season"><b data-sname>' + s.name + '</b><span data-sdate>' + s.date + '</span></div>' +
-        '<input class="z-range" id="zielnik-season" data-key="season" type="range" min="0" max="3" step="1" value="' + state.season + '" aria-label="Season">';
+        '<input class="z-range" id="herbarium-season" data-key="season" type="range" min="0" max="3" step="1" value="' + state.season + '" aria-label="Season">';
     }
 
     function render() {
@@ -531,8 +531,8 @@
       var tabs = [['find', 'Identify'], ['sheets', 'Herbarium'], ['seasons', 'Seasons']].map(function (t) {
         return '<button type="button" data-key="tab-' + t[0] + '" data-act="tab" data-tab="' + t[0] + '"' + (state.tab === t[0] ? ' aria-current="true"' : '') + '>' + t[1] + '</button>';
       }).join('');
-      renderInto(root, '<div class="z-body" data-scroll>' + view + '</div><nav class="z-tabs" aria-label="Zielnik demo tabs">' + tabs + '</nav>');
-      syncFeatures('zielnik', state.tab);
+      renderInto(root, '<div class="z-body" data-scroll>' + view + '</div><nav class="z-tabs" aria-label="Herbarium demo tabs">' + tabs + '</nav>');
+      syncFeatures('herbarium', state.tab);
     }
 
     function open(tab) {
@@ -563,7 +563,7 @@
     });
 
     root.addEventListener('input', function (e) {
-      if (e.target.id !== 'zielnik-season') return;
+      if (e.target.id !== 'herbarium-season') return;
       state.season = +e.target.value;
       var s = SEASONS[state.season];
       root.querySelectorAll('[data-canopy]').forEach(function (c) {
@@ -574,13 +574,13 @@
       root.querySelector('[data-sdate]').textContent = s.date;
     });
 
-    bindFeatures('zielnik', open);
+    bindFeatures('herbarium', open);
     render();
   }
 
-  /* ---------- Zdrapnik demo ---------- */
+  /* ---------- Scratch Map demo ---------- */
 
-  function zdrapnikDemo(root) {
+  function scratchMapDemo(root) {
     var W = 280, H = 400, SCALE = 2, BRUSH = 17;
     var XS = [20, 70, 120, 170, 225];
     var YS = [30, 90, 150, 210, 270, 330, 380];
@@ -774,9 +774,9 @@
       var tabs = [['map', 'Map'], ['rides', 'Rides'], ['areas', 'Areas']].map(function (t) {
         return '<button type="button" data-key="tab-' + t[0] + '" data-act="tab" data-tab="' + t[0] + '"' + (state.tab === t[0] ? ' aria-current="true"' : '') + '>' + t[1] + '</button>';
       }).join('');
-      renderInto(root, '<div class="f-body" data-scroll>' + view + '</div><nav class="f-tabs" aria-label="Zdrapnik demo tabs">' + tabs + '</nav>');
+      renderInto(root, '<div class="f-body" data-scroll>' + view + '</div><nav class="f-tabs" aria-label="Scratch Map demo tabs">' + tabs + '</nav>');
       paint();
-      syncFeatures('zdrapnik', state.tab);
+      syncFeatures('scratch-map', state.tab);
     }
 
     function open(tab) {
@@ -833,7 +833,7 @@
     });
 
     ride(RIDES[0], true);
-    bindFeatures('zdrapnik', open);
+    bindFeatures('scratch-map', open);
     render();
   }
 
@@ -880,10 +880,10 @@
   var smpRoot = document.getElementById('smp-screen');
   if (pantryRoot) pantryDemo(pantryRoot);
   if (smpRoot) smpDemo(smpRoot);
-  var zielnikRoot = document.getElementById('zielnik-screen');
-  var zdrapnikRoot = document.getElementById('zdrapnik-screen');
-  if (zielnikRoot) zielnikDemo(zielnikRoot);
-  if (zdrapnikRoot) zdrapnikDemo(zdrapnikRoot);
+  var herbariumRoot = document.getElementById('herbarium-screen');
+  var scratchMapRoot = document.getElementById('scratch-map-screen');
+  if (herbariumRoot) herbariumDemo(herbariumRoot);
+  if (scratchMapRoot) scratchMapDemo(scratchMapRoot);
   drawEdges();
   window.addEventListener('resize', drawEdges);
 })();
