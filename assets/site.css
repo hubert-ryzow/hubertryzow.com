@@ -78,7 +78,7 @@ h1 {
 .hero-lead { margin-top: clamp(24px, 3vw, 40px); max-width: 34em; font-size: clamp(1.15rem, 1.8vw, 1.45rem); line-height: 1.4; }
 
 .home-screen { display: grid; grid-template-columns: repeat(5, minmax(0, 104px)); gap: clamp(10px, 2vw, 28px); padding-bottom: 6px; }
-.app { display: grid; justify-items: center; gap: 8px; text-decoration: none; font-size: .9rem; font-weight: 500; }
+.app { display: grid; justify-items: center; align-content: start; gap: 8px; text-align: center; line-height: 1.2; text-decoration: none; font-size: .9rem; font-weight: 500; }
 .app:focus-visible { outline-color: var(--yolk); }
 .icon {
   display: block;
@@ -225,14 +225,14 @@ h1 {
 .s-tabs button { padding: 8px 0; font-size: 12.5px; font-weight: 600; color: #CBD0F5; }
 .s-tabs button[aria-current="true"] { color: #0B1A08; background: var(--grass); }
 
-/* Zielnik world: a herbarium sheet */
-.zielnik { background: var(--lichen); color: var(--forest); padding-block: clamp(64px, 9vw, 120px); }
-.zielnik h2 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(4.5rem, 11vw, 9.5rem); line-height: .9; letter-spacing: -.02em; }
-.zielnik .feature { border: 1px solid transparent; }
-.zielnik .feature:hover { background: var(--lichen-deep); }
-.zielnik .feature[aria-pressed="true"] { background: var(--sheet); border-color: var(--forest); }
-.zielnik .feature strong { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; line-height: 1.15; }
-.zielnik .feature:focus-visible { outline-color: var(--forest); }
+/* Herbarium world: a herbarium sheet */
+.herbarium { background: var(--lichen); color: var(--forest); padding-block: clamp(64px, 9vw, 120px); }
+.herbarium h2 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(4.5rem, 11vw, 9.5rem); line-height: .9; letter-spacing: -.02em; }
+.herbarium .feature { border: 1px solid transparent; }
+.herbarium .feature:hover { background: var(--lichen-deep); }
+.herbarium .feature[aria-pressed="true"] { background: var(--sheet); border-color: var(--forest); }
+.herbarium .feature strong { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; line-height: 1.15; }
+.herbarium .feature:focus-visible { outline-color: var(--forest); }
 .phone-sheet { background: var(--forest); }
 .phone-sheet .screen { background: var(--sheet); color: var(--forest); font-family: var(--body); }
 .z-body { flex: 1; min-height: 0; overflow-y: auto; padding: 54px 16px 16px; }
@@ -267,13 +267,14 @@ h1 {
 .z-tabs button { flex: 1; padding: 8px 0; font-size: 13px; font-weight: 600; }
 .z-tabs button[aria-current="true"] { background: var(--lichen); }
 
-/* Zdrapnik world: scratch-card foil on road-poster orange */
-.zdrapnik { background: var(--coral); color: var(--ink); padding-block: clamp(64px, 9vw, 120px); }
-.zdrapnik h2 { font-family: var(--display); font-weight: 900; font-stretch: 50%; font-size: clamp(5.5rem, 15vw, 13rem); line-height: .82; letter-spacing: .025em; }
-.zdrapnik .feature { border-radius: 3px; }
-.zdrapnik .feature:hover { background: var(--coral-deep); }
-.zdrapnik .feature[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
-.zdrapnik .feature:focus-visible { outline-color: var(--ink); }
+/* Scratch Map world: scratch-card foil on road-poster orange */
+.scratch-map { background: var(--coral); color: var(--ink); padding-block: clamp(64px, 9vw, 120px); }
+.scratch-map h2 { font-family: var(--display); font-weight: 900; font-stretch: 50%; font-size: clamp(5rem, 13vw, 11rem); line-height: .9; letter-spacing: .025em; }
+.scratch-map .lead { margin-top: 32px; }
+.scratch-map .feature { border-radius: 3px; }
+.scratch-map .feature:hover { background: var(--coral-deep); }
+.scratch-map .feature[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.scratch-map .feature:focus-visible { outline-color: var(--ink); }
 .phone-foil { background: var(--ink); }
 .phone-foil .screen { background: #fff; color: var(--ink); font-family: var(--body); }
 .f-body { flex: 1; min-height: 0; overflow-y: auto; padding: 52px 12px 12px; }
